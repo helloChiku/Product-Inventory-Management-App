@@ -15,19 +15,11 @@ const App = () => {
         {/* Public Routes */}
         <Route
           path="/"
-          element={ <Navigate to="/dashboard" />}
+          element={ <DashboardPage />}
         />
        
 
-        {/* Private Routes */}
-        <Route
-          path="/dashboard"
-          element={
-           
-              <DashboardPage />
-           
-          }
-        />
+      
       </Routes>
     </Router>
   );
