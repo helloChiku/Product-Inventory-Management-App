@@ -14,7 +14,6 @@ import { connectDB } from '@/www/db/index';
 
 dotenv.config();
 
-
 const app = express();
 
 const limiter = rateLimit({
@@ -63,7 +62,7 @@ fs.readdirSync(routePath).forEach((file) => {
 
 const schemaPath = './src/model';
 fs.readdirSync(schemaPath).forEach((file) => {
-  console.log(file, 'file');
+
   if (file.endsWith('.ts')) {
     require(`${schemaPath}/${file}`);
   }

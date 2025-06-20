@@ -28,23 +28,37 @@ To create a responsive and interactive application where users can:
 
 product-inventory-app/
 │
-├── client/               # React Frontend
-│   ├── public/
+├── backend/                        # Express backend
 │   ├── src/
-│   │   ├── components/   # Reusable UI components
-│   │   ├── pages/        # Add/Edit/List product pages
-│   │   ├── styles/       # SCSS modules
-│   │   └── App.jsx       # Main App with routing
+│   │   ├── controller/             # Mongoose controller logic
+│   │   ├── models/                 # Mongoose schemas/models
+│   │   └── routes/                 # API endpoints
+│   ├── app.ts                      # Express setup and configuration
+│   ├── tsconfig.json               # TypeScript config
 │   └── package.json
 │
-├── server/               # Express Backend
-│   ├── models/           # Mongoose schema
-│   ├── routes/           # API routes
-│   └── index.js          # Entry point
+├── frontend/                       # React frontend
+│   ├── public/                     # Static files
+│   ├── src/
+│   │   ├── api/                    # Axios API services
+│   │   ├── assets/                 # Images and icons
+│   │   ├── components/             # Reusable components (like Modal, Table, etc.)
+│   │   ├── context/                # Global context for products
+│   │   ├── model/                  # TS model definitions for Product, API types
+│   │   ├── pages/                  # Page-level components (List, Add, Edit)
+│   │   ├── utils/                  # Utility functions or constants
+│   │   ├── App.tsx                 # Main App with routing
+│   │   └── index.tsx              # Root render entry
+│   ├── .env.development
+│   ├── .env.production
+│   ├── tailwind.config.js
+│   ├── vite.config.ts
+│   └── package.json
 │
-├── .env                  # Environment variables
+├── .gitignore
 ├── README.md
-└── package.json
+└── package.json                   # Project-level config if monorepo
+
 
 ````
 
@@ -71,7 +85,7 @@ product-inventory-app/
   - `GET /api/products`
   - `POST /api/products`
   - `PUT /api/products/:id`
-  - `DELETE /api/products/:id`
+  - `POST /api/products/:id`
 - **Mongoose Schema**:
   - `name` (string, min length 3)
   - `price` (number, > 0)

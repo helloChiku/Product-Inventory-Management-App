@@ -28,7 +28,7 @@ const setRouter = (app) => {
     validate(updateProductValidationSchema),
     productController.updateProducts
   );
-  app.delete(
+  app.post(
     apiVersion + 'delete-product',
     validate(deleteProductValidationSchema),
     productController.deleteProduct

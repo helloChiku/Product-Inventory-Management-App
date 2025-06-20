@@ -13,10 +13,25 @@ const getAllProducts = async (req: Request, res: Response) => {
   try {
     const page = parseInt(req.query.page as string) || 1;
     const limit = parseInt(req.query.limit as string) || 10;
+    const search = req.query.search?.toString().trim() || '';
     const skip = (page - 1) * limit;
+
+    const filter: any = {};
+
+    if (search) {
+      filter.$or = [
+        { name: { $regex: search, $options: 'i' } },
+        { category: { $regex: search, $options: 'i' } }
+      ];
+    }
+
+
     const [products, total] = await Promise.all([
-      Products.find().skip(skip).limit(limit).sort({ createdAt: -1 }),
-      Products.countDocuments(),
+      Products.find(filter)
+        .skip(skip)
+        .limit(limit)
+        .sort({ createdAt: -1 }),
+      Products.countDocuments(filter)
     ]);
 
     const response = responseLib.generateApiResponse(
@@ -71,8 +86,8 @@ const createProducts = async (req: Request, res: Response) => {
  */
 const updateProducts = async (req: Request, res: Response) => {
   try {
-    let { product_id, ...product_data } = req.body;
-    await Products.findByIdAndUpdate(product_id, product_data, {
+    let { id, ...product_data } = req.body;
+    await Products.findByIdAndUpdate(id, product_data, {
       runValidators: true,
     });
 
@@ -98,7 +113,8 @@ const updateProducts = async (req: Request, res: Response) => {
 
 const deleteProduct = async (req: Request, res: Response) => {
   try {
-    let product_id = req.body.product_id;
+    let product_id = req.body.id;
+    console.log(product_id, 'delete hit =====')
     await Products.findByIdAndDelete(product_id);
     const response = responseLib.generateApiResponse(
       false,
