@@ -102,66 +102,28 @@ product-inventory-app/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/product-inventory-app.git
+git clone https://github.com/helloChiku/product-inventory-app.git
 cd product-inventory-app
 ````
 
-### 2. Set Up Backend
 
-```bash
-cd server
-npm install
-```
 
-#### Create `.env` file in `/server` with:
+#### Create `.env` file in `/backend` with:
 
 ```env
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
+I USE INSIDE THE PROJECT
 ```
 
-### 3. Set Up Frontend
 
-```bash
-cd ../client
-npm install
-```
 
-### 4. Run Both Servers
+## 📦 Available Scripts
 
-In two terminals:
-
-```bash
-# Terminal 1: Start Backend
-cd server
-npm start
-```
-
-```bash
-# Terminal 2: Start Frontend
-cd client
-npm start
-```
-
-Visit: `http://localhost:3000`
-
----
-
-## 🌐 Deployment (Vercel)
-
-### Deploy Frontend
-
-* Push `client/` as a separate Vercel project.
-* Set **Base Directory** to `client`.
-* Add build command: `npm run build`
-* Set output directory: `build`
-
-### Deploy Backend
-
-* Push `server/` as a Vercel project.
-* Set build command: `npm install`
-* Set root directory to `server`
-* Add environment variable `MONGO_URI`
+| Script                | Description                                            |
+|-----------------------|--------------------------------------------------------|
+| `npm run install-all` | Installs all dependencies for backend & frontend       |
+| `npm run start`       | Starts both client & server together using `concurrently` |
+| `npm run server`      | Starts the backend server only                         |
+| `npm run client`      | Starts the frontend app only                           |
 
 
 ## 📌 Author

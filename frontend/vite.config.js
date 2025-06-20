@@ -5,6 +5,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   css: {
     postcss: null, // ⛔ disables PostCSS pipeline
-  }
+  },
+  base: './'
 })
 
