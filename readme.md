@@ -4,8 +4,9 @@ A full-stack CRUD web application to manage a product inventory system using the
 
 ## 🚀 Live Demo
 
-Frontend: [https://your-frontend-url.vercel.app](https://your-frontend-url.vercel.app)  
-Backend API: [https://your-backend-url.vercel.app/api/products](https://your-backend-url.vercel.app/api/products)
+
+Frontend: [https://product-inventory-management-app-bh.vercel.app/](https://product-inventory-management-app-bh.vercel.app/)  
+Backend API: [https://product-inventory-management-app.onrender.com](https://product-inventory-management-app.onrender.com)
 
 ## 🎯 Objective
 
@@ -97,6 +98,9 @@ product-inventory-app/
 
 - **Backend**: Enforced using Mongoose schema
 - **Frontend**: Client-side checks prevent submission with invalid data
+
+
+
 
 ## 🛠 How to Run Locally
 
